@@ -48,10 +48,10 @@
                                     <input type="file" class="custom-file-input" name="preview_image">
                                     <label class="custom-file-label" >Выберите изображение</label>
                                 </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Загрузка</span>
-                                </div>
                             </div>
+                            @error('preview_image')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
                         </div>
                         <div class="form-group w-75 pl-2">
                             <label for="exampleInputFile">Добавить главное изображение</label>
@@ -60,10 +60,31 @@
                                     <input type="file" class="custom-file-input" name="main_image">
                                     <label class="custom-file-label" >Выберите изображение</label>
                                 </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Загрузка</span>
-                                </div>
                             </div>
+                            @error('main_image')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group pl-2 w-75">
+                            <label>Выберите категорию</label>
+                            <select name="category_id" class="form-control">
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}"
+                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                >{{$category->title}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group pl-2">
+                            <label>Multiple</label>
+                            <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
+                                @foreach($tags as $tag)
+                                <option {{ is_array( old('tag_ids') ) && in_array( $tag->id, old('tag_ids') ) ? 'selected' : '' }} value="{{ $tag->id }}">{{$tag->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group pl-2">
                             <input type="submit" class="btn btn-primary" value="Добавить">

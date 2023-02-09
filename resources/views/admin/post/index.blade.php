@@ -41,7 +41,6 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
-                                        <th>Текст</th>
                                         <th>Дата создания</th>
                                         <th colspan="3">Действия</th>
                                     </tr>
@@ -51,12 +50,11 @@
                                     <tr>
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
-                                        <td>{{$post->content}}</td>
                                         <td>{{$post->created_at}}</td>
-                                        <td><a href="{{route('admin.category.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a href="{{route('admin.category.edit', $post->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="{{route('admin.post.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
+                                        <td><a href="{{route('admin.post.edit', $post->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td>
-                                            <form action="{{route('admin.category.delete', $post->id)}}" method="POST">
+                                            <form action="{{route('admin.post.delete', $post->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0" style="background: transparent;">

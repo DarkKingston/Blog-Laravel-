@@ -33,12 +33,12 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
 
                         <div class="card">
 
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
+                                <table class="table table-hover text-wrap">
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
@@ -49,6 +49,23 @@
                                             <td>{{$post->title}}</td>
                                         </tr>
                                         <tr>
+                                            <td>Текст поста</td>
+                                            <td>{{$post->content}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Превью</td>
+                                            <td><img src="{{asset('/storage/'.$post->preview_image)}}" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Главное изображение</td>
+                                            <td><img src="{{asset($post->main_image)}}" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Категория</td>
+                                            <td>{{ isset($categories[$post['category_id']-1]->title) ? $categories[$post['category_id']-1]->title : 'Не установлена категория' }}</td>
+                                        </tr>
+                                        <tr>
+
                                             <td>Дата создания</td>
                                             <td>{{$post->created_at}}</td>
                                         </tr>
