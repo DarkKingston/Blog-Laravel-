@@ -54,11 +54,11 @@
                                         </tr>
                                         <tr>
                                             <td>Превью</td>
-                                            <td><img src="{{asset('/storage/'.$post->preview_image)}}" alt=""></td>
+                                            <td><img style="width: 400px;object-fit: cover" src="{{asset('/storage/'.$post->preview_image)}}" alt=""></td>
                                         </tr>
                                         <tr>
                                             <td>Главное изображение</td>
-                                            <td><img src="{{asset($post->main_image)}}" alt=""></td>
+                                            <td><img style="width: 400px;object-fit: cover"  src="{{asset('/storage/'.$post->main_image)}}" alt=""></td>
                                         </tr>
                                         <tr>
                                             <td>Категория</td>
