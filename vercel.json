@@ -22,8 +22,5 @@
         "CACHE_DRIVED": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER":"cookie"
-    },
-    "scripts": {
-        "build": "[my-framework] build --output public"
     }
 }
