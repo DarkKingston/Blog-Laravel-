@@ -49,6 +49,14 @@
                                             <td>{{$user->name}}</td>
                                         </tr>
                                         <tr>
+                                            <td>Почта</td>
+                                            <td>{{$user->email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Роль</td>
+                                            <td>{{$roles[$user->role]}}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Дата создания</td>
                                             <td>{{$user->created_at}}</td>
                                         </tr>

@@ -30,9 +30,35 @@
                     <form action="{{ route('admin.user.store') }}" method="POST" class="col-4">
                         @csrf
                         <div class="form-group">
-                             <input type="text" name="name" class="form-control"  placeholder="Имя пользователя">
+                             <input type="text" name="name" class="form-control"  placeholder="Имя пользователя"
+                             value="{{old('name')}}">
                             @error('name')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control"  placeholder="Ваша почта">
+                            @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control"  placeholder="Пароль">
+                            @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-75">
+                            <label>Выберите пользователя</label>
+                            <select name="role" class="form-control">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{$id}}"
+                                        {{ $id == $user->role ? ' selected' : '' }}
+                                    >{{$role}}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
                         <input type="submit" class="btn btn-primary" value="Добавить">

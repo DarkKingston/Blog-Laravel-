@@ -31,10 +31,33 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
-                             <input type="text" name="name" class="form-control"  placeholder="имя пользователя" value="{{$user->name}}">
+                             <input type="text" name="name" class="form-control"  placeholder="Имя пользователя" value="{{$user->name}}">
                             @error('name')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control"  placeholder="Ваша почта" value="{{$user->email}}">
+                            @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group  w-75">
+                            <label>Выберите пользователя</label>
+                            <select name="role" class="form-control">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{$id}}"
+                                        {{ $id == $user->role ? ' selected' : '' }}
+                                    >{{$role}}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group  w-75">
+                            <input type="hidden" name="user_id" value="{{$user->id}}">
                         </div>
                         <input type="submit" class="btn btn-primary" value="Обновить">
                     </form>
