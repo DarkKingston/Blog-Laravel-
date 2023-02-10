@@ -8,9 +8,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0">{{$post->title}}</h1>
-                        <a href="{{route('admin.post.edit', $post->id)}}" class="text-success"><i class="fas fa-pencil-alt pl-3"></i></a>
-                        <form action="{{route('admin.post.delete', $post->id)}}" method="POST">
+                        <h1 class="m-0">{{$user->name}}</h1>
+                        <a href="{{route('admin.user.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt pl-3"></i></a>
+                        <form action="{{route('admin.user.delete', $user->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="border-0" style="background: transparent;">
@@ -33,37 +33,24 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
 
                         <div class="card">
 
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-wrap">
+                                <table class="table table-hover text-nowrap">
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
-                                            <td>{{$post->id}}</td>
+                                            <td>{{$user->id}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Название</td>
-                                            <td>{{$post->title}}</td>
+                                            <td>Имя</td>
+                                            <td>{{$user->name}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Текст поста</td>
-                                            <td>{{$post->content}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Превью</td>
-                                            <td><img style="width: 400px;object-fit: cover" src="{{asset('/storage/'.$post->preview_image)}}" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Главное изображение</td>
-                                            <td><img style="width: 400px;object-fit: cover"  src="{{asset('/storage/'.$post->main_image)}}" alt=""></td>
-                                        </tr>
-                                        <tr>
-
                                             <td>Дата создания</td>
-                                            <td>{{$post->created_at}}</td>
+                                            <td>{{$user->created_at}}</td>
                                         </tr>
 
                                     </tbody>
@@ -72,7 +59,7 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <a href="{{ route('admin.post.index') }}" class="btn btn-primary">Назад</a>
+                        <a href="{{ route('admin.user.index') }}" class="btn btn-primary">Назад</a>
                     </div>
 
                 </div>

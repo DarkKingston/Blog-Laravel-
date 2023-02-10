@@ -33,13 +33,13 @@
                         <div class="form-group col-4" >
                             <input type="text" name="title" class="form-control"  placeholder="Название поста" value="{{$post->title}}">
                             @error('title')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group pl-2">
                             <textarea name="content" id="summernote" >{{$post->content}}</textarea>
                             @error('content')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group w-75 pl-2">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             @error('preview_image')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group w-75 pl-2">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             @error('main_image')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group pl-2 w-75">
@@ -82,7 +82,7 @@
                                 @endforeach
                             </select>
                             @error('category_id')
-                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group pl-2">

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke(Post $post): string
     {
