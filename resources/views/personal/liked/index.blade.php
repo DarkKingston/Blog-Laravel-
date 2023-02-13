@@ -27,7 +27,48 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
 
+                    <div class="col-12">
 
+                        <div class="card">
+
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Название</th>
+                                        <th>Превью</th>
+                                        <th colspan="3">Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($posts as $post)
+                                        <tr>
+                                            <td>{{$post->id}}</td>
+                                            <td>{{$post->title}}</td>
+                                            <td><img style="width: 160px;
+    height: 100px;
+    object-fit: cover;" src="{{asset('storage/'.$post->preview_image)}}" alt=""></td>
+                                            <td style="width: 10px"><a href="{{route('admin.post.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
+
+                                            <td>
+                                                <form action="{{route('personal.liked.delete', $post->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0" style="background: transparent;">
+                                                        <i class="text-danger fas fa-trash" role="button"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
