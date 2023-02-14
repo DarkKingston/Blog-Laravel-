@@ -10,7 +10,6 @@ class EditController extends BaseController
 {
     public function __invoke(Post $post): string
     {
-
         $categories = Category::all();
         $tags = Tag::all();
         return view('admin.post.edit', compact('post','categories','tags'));

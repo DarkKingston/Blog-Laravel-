@@ -8,6 +8,7 @@ class IndexController extends Controller
 {
     public function __invoke(): string
     {
-        return view('personal.comment.index');
+        $comments = auth()->user()->comments;
+            return view('personal.comment.index', compact('comments'));
     }
 }

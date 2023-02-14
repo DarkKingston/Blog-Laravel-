@@ -27,6 +27,44 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
 
+                    <div class="col-12">
+
+                        <div class="card">
+
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Комментарий</th>
+                                        <th colspan="3">Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($comments as $comment)
+                                        <tr>
+                                            <td>{{$comment->id}}</td>
+                                            <td>{{$comment->message}}</td>
+                                           <td style="width: 10px;"><a href="{{route('personal.comment.edit', $comment->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+
+                                            <td>
+                                                <form action="{{route('personal.comment.delete', $comment->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0" style="background: transparent;">
+                                                        <i class="text-danger fas fa-trash" role="button"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /.row -->
