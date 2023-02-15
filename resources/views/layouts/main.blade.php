@@ -22,11 +22,19 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="edicaMainNav">
-                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0" style="width: 100%; justify-content: flex-end !important;">
 
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
+                    </li>
+                    <li class="nav-item">
+                        @auth()
+                        <a class="nav-link btn btn-success" style="color:white" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                        @endauth
+                        @guest()
+                        <a class="nav-link btn btn-success" style="color:white" href="{{ route('personal.main.index') }}">Войти</a>
+                        @endguest
                     </li>
                 </ul>
             </div>
