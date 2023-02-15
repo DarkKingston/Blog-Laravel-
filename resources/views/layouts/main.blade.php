@@ -29,14 +29,6 @@
                         <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
-                    </li>
-                </ul>
             </div>
         </nav>
     </div>
