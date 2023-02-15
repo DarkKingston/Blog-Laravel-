@@ -51,7 +51,7 @@
                                         </tr>
                                         <tr>
                                             <td>Текст поста</td>
-                                            <td>{{$post->content}}</td>
+                                            <td> {!! $post->content !!}</td>
                                         </tr>
                                         <tr>
                                             <td>Превью</td>
